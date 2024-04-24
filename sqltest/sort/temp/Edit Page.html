@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Student Data Base</title>
+
+<style>
+    .center-box {
+        width: 1000px;
+        height: 1130px;
+        background-color: #2a2a2a;
+        margin-top: 30px;
+        margin-left: 250px;
+        align-items: center;
+        font-size: x-large;
+    }
+
+    .button {
+        background-color: rgb(160,28,76);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 10px;
+        cursor: pointer;
+        border-radius: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+</style>
+</head>
+<body bgcolor="#111">
+
+    <h1> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+         &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+         Edit Student Data Base Of Class X</h1><a href="Ariv Class X Data.html"><button class="button"><b>Back</b></button></a></h2><hr>
+    
+    <div class="center-box">
+        <form>
+            <br>
+            <div>
+    
+                <label for="fname :" >&nbsp;&nbsp;&nbsp;First name :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input type="text" id="fname" placeholder="First Name" required><!--First Name-->       
+            
+            </div>
+            <br>
+            <br>
+            <div>
+    
+                <label for="fname :">&nbsp;&nbsp;&nbsp;Last name :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input type="text" id="lname" placeholder="Last Name" required><!--Last Name-->            
+            
+            </div>
+            <br>
+            <br>
+            <div>
+    
+                <label for="Age :">&nbsp;&nbsp;&nbsp;Age :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input type="number" id="Age" placeholder="Age" min="1" max="99" required><!--Age-->           
+            
+            </div>
+            <br>
+            <br>
+            <div>
+    
+                <label for="Grade :">&nbsp;&nbsp;&nbsp;Grade :
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </label>
+                <input type="number" id="Grade" placeholder="Grade" min="1" max="12" required><!--Grade-->            
+            
+            </div>
+            <br>
+            <br>        
+            <div>
+    
+                <label for="Date Of Birth :">&nbsp;&nbsp;&nbsp;Date Of Birth :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;</label>
+                <input type="date" id="Date Of Birth" required><!--Date Of Birth-->            
+            
+            </div>
+            <br>
+            <br>
+            <div>
+    
+                <label for="Emergency Contact 1:">&nbsp;&nbsp;&nbsp;Emergency Contact 1 (Required) :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input type="text" id="Emergency Contact 1" placeholder="Emergency Contact" required><!--EC1-->         
+            
+            </div>
+            <br>
+            <br>
+            <div>
+    
+                <label for="Emergency Contact 2:">&nbsp;&nbsp;&nbsp;Emergency Contact 2 (Optional) :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input type="text" id="Emergency Contact 2" placeholder="Emergency Contact"><!--EC2-->         
+            
+            </div>
+            <br>
+            <br>
+            <div>
+    
+                <label for="Emergency Contact 3:">&nbsp;&nbsp;&nbsp;Emergency Contact 3 (Optional) :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input type="text" id="Emergency Contact 3" placeholder="Emergency Contact"><!--EC3-->         
+            
+            </div>
+            <br>
+            <br>
+            <div>
+    
+            <label for="address">&nbsp;&nbsp;&nbsp;Address :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <textarea id="address" name="address" rows="4" cols="50" required placeholder="Address"></textarea><!--Address--> 
+            
+            </div>
+            <br>
+            <br>
+            <div>
+        
+                &nbsp;&nbsp;&nbsp;Gender :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" id="male" name="gender" value="male" required><label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female" required><label for="female">Female</label>
+                <input type="radio" id="Other's" name="Other's" value="Other's" ><label for="Other's">Other's</label><!--Gender-->   
+        
+            </div>
+            <br>
+            <br>
+            <div>
+    
+                <label for="Nationality:">&nbsp;&nbsp;&nbsp;Nationality :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input type="text" id="Nationality" placeholder="Nationality" required><!--Nationality-->         
+            
+            </div>
+            <br>
+            <br>
+            <div>
+    
+                &nbsp;&nbsp;&nbsp;Blood Group :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;<select id="Blood-group" name="Blood-group" required>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                </select>     
+            
+            </div>
+            <br>
+            <br>
+            <div>
+            
+                &nbsp;&nbsp;&nbsp;<button class="button" type="reset"><b>Reset</b></button>
+    
+            
+                &nbsp;&nbsp;&nbsp;<button class="button" type="submit"><b>Submit</b></button>
+    
+            </div>  
+    </div>
+
+</body>
+</html>
