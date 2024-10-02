@@ -67,6 +67,21 @@
             gap: 5px; 
         }
         
+        .button {
+            background-color: rgb(160,28,76);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
         .dark-theme {
             background-color: #333; /* Dark background color */
             color: #fff; /* Light text color */
@@ -89,7 +104,8 @@
 </head>
 <body>
     <h2>Registration Form</h2>
-    <form action="transfer.php" method="POST">
+    <a href="index.php"><button class="button"><b>Back</b></button></a>
+    <form action="connect/transfer.php" method="POST">
         <label for="firstname">First Name:</label>
         <input type="text" id="firstname" name="firstname" required>
         
@@ -100,7 +116,26 @@
         <input type="number" id="age" name="age" required>
         
         <label for="grade">Grade:</label>
-        <input type="number" id="grade" name="grade" required>
+        <select id="grade" name="grade" required>
+        <?php
+            $conn = new mysqli('localhost', 'root', 'Aamvdog321', 'school_list');
+            $sql = "SELECT grades FROM classlist";
+            $result = $conn->query($sql);
+            $classes = array();
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    if (!in_array($row["grades"], $classes)) { // Check if the grade is not already in $classes
+                        array_push($classes, $row['grades']);
+                        echo "<option value='" . $row["grades"] . "'>" . $row["grades"] . "</option>";
+                    }
+                    
+                    }
+                }
+            else {
+                echo "<option value=''>No options available</option>";
+            }
+        ?>
+        </select>
 
         <label for="section">Section:</label>
         <select id="section" name="section" required>
@@ -108,20 +143,19 @@
             <option value="B">B</option>
             <option value="C">C</option>
             <option value="D">D</option>
-            <option value="E">E</option>
         </select>
         
         <label for="dob">Date Of Birth:</label>
-        <input type="date" name="dob" id="dob" required class="dark-theme">
+        <input type="date" name="dob" id="dob" max="31/12/2024" required class="dark-theme">
         <br><br>
         
         <label for="contact">Emergency Contact:</label>
         <input type="number" id="contact" name="contact" required>
         
-        <label for="restrictions">Restrictions (ignore if none):</label>
-        <input type="text" id="restrictions" name="restrictions">
+        <label for="description">Description (ignore if not necessary):</label>
+        <textarea id="description" name="description" rows="6" cols="50"></textarea>
         
-        <label for="gender">Gender: </label>
+        <label for="gender">Gender: </label> 
         <input type="radio" id="male" name="gender" value="male" required><label for="male">Male</label>
         <input type="radio" id="female" name="gender" value="female" required><label for="female">Female</label>
 

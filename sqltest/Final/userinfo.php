@@ -2,7 +2,10 @@
 <html>
 <head>
 
-    <title>Ariv Gupta Class X - Student Data</title>
+    <title><?php 
+        include 'connect/recieve.php';
+        echo $firstname . " " . $lastname . "- Student Information"    
+    ?></title>
 
     <style>
         /* Your CSS styles here */
@@ -73,20 +76,12 @@
             }
         }    
         ?>
-    <h1 class="highigth">Ariv Gupta</h1>
-    <h2 class="highigth">Class 10<small>th </small>- C &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="section.php?class_id=<?php echo $user_data['classid']; ?>"><button class="button"><b>Back</b></button></a></h2>
+        <?php     
+        $grade_id= isset($_GET['grade_id']) ? $_GET['grade_id'] : null;
+        $class_id= isset($_GET['class_id']) ? $_GET['class_id'] : null;
+        $section_id = isset($_GET['section_id']) ? $_GET['section_id'] : null;
+        ?>
+        <a href="section.php?grade_id=<?php echo $grade_id ?>&class_id=<?php echo $class_id ?>&section_id=<?php echo $section_id?>"><button class="button"><b>Back</b></button></a></h2>
     <hr>    
         
     <div class="container">
@@ -122,16 +117,23 @@ if(isset($_GET['user_id'])) {
         // Fetch user data
         $user_data = mysqli_fetch_assoc($result);
 
+        if ($user_data['description'] == "") {
+            $description="None";
+        }
+        else {
+            $description=$user_data['description'];
+        }
+
         // Display user profile
         echo "<pre style=\"font-family: Arial, Helvetica, sans-serif;\">";
         echo "<span class=\"highigth\">Name: " . $user_data['firstname'] . ' ' . $user_data['lastname'] . "<br><br></span>";
         echo "<span class=\"highigth\">ID Number: " . $user_data['userid'] . "<br><br></span>";
         echo "<span class=\"highigth\">Date of Birth: " . $user_data['dob'] . "<br><br></span>";
-        echo "<span class=\"highigth\">Restrictions: " . $user_data['restrictions'] . "<br><br></span>";
+        echo "<span class=\"highigth\">Description: <br>" . $description . "<br><br></span>";
         echo "<span class=\"highigth\">Emergency Contact: " . $user_data['contact'] . "<br><br></span>";
         echo "<span class=\"highigth\">Gender: " . $user_data['gender'] . "<br><br></span>";
         echo "<span class=\"highigth\">Nationality: " . $user_data['nationality'] . "<br><br></span>";
-        echo "<span class=\"highigth\">Address: " . $user_data['address'] . "<br><br></span>";
+        echo "<span class=\"highigth\">Address: <br>" . $user_data['address'] . "<br><br></span>";
         echo "<span class=\"highigth\">Blood Type: " . $user_data['bloodgroup'] . "<br><br></span>";
         echo "<span class=\"highigth\">Age: " . $user_data['age'] . "<br><br></span>";
         echo "<span class=\"highigth\">Grade: " . $user_data['grade'] . " " .$user_data['section'] . "<br><br></span>";
@@ -147,7 +149,13 @@ if(isset($_GET['user_id'])) {
     echo "User ID not provided";
 }
 ?>
-<a href="editpage.php?id=<?php echo $user_id; ?>"><button class="button"><b>Edit</b></button></a>
+<?php
+    $grade_id= isset($_GET['grade_id']) ? $_GET['grade_id'] : null;
+    $class_id= isset($_GET['class_id']) ? $_GET['class_id'] : null;
+    $section_id = isset($_GET['section_id']) ? $_GET['section_id'] : null;
+?>
+
+<a href="editpage.php?id=<?php echo $user_id;?>&section_id=<?php echo $section_id?>&grade_id=<?php echo $grade_id;?>&class_id=<?php echo $class_id;?>"><button class="button"><b>Edit</b></button></a>
     </div>
     
 </body>

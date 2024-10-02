@@ -21,12 +21,16 @@ if ($result->num_rows > 0) {
             .center-box {
                 width: 800px;
                 height: 300px;
-                background-color: #2a2a2a;
                 margin-top: 30px;
                 margin-left: 330px;
                 align-items: center;
                 font-size: x-large;
             }
+
+            .texts {
+                color: white;
+            }
+
             .button {
                 background-color: rgb(160,28,76);
                 color: white;
@@ -41,17 +45,39 @@ if ($result->num_rows > 0) {
                 border-radius: 10px;
                 font-family: Arial, Helvetica, sans-serif;
             }
+
+            .longbutton {
+                background-color: rgb(160, 28, 76);
+                color: white;
+                border: none;
+                padding: 10px 355px;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 10px;
+                cursor: pointer;
+                border-radius: 10px;
+                font-family: Arial, Helvetica, sans-serif;
+                margin-left: 0px;
+            }
         </style>
     </head>
-    <body bgcolor='#111'>
-        <h1>Student Data Base Of Class X C</h1>
+    <body bgcolor='#111' class='texts'>
+        <h1>Student Data Base Of School</h1>
         <hr>
         <div class='center-box'>
             <pre>";
+    $classes1 = array();
+
     while ($row = $result->fetch_assoc()) {
-        echo "<a href='section.php?class_id=" . $row["classid"] . "'><button class='button'><b>View</b></button></a> &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;<span style='color: white;'>" . $row["classid"].". ". $row["grades"] . " " . $row["sections"] . "</span><hr>";
+
+        if (!in_array($row["grades"], $classes1)) { // Check if the grade is not already in $classes
+            array_push($classes1, $row['grades']);
+            echo "<a href='allsections.php?grade_id=" . $row["grades"] . "'><button class='button'><b>View</b></button></a> &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;<span style='color: white;'>" . "Grade ". $row["grades"] . "</span><hr>";
+        }        
     }
-    echo "</pre>
+    echo "<a href='registration.php'><button class='longbutton'><b>Add Student</b></button></a>
+            </pre>
         </div>
     </body>
     </html>";

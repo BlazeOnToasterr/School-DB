@@ -16,9 +16,10 @@ if(isset($_POST['submit'])) {
     $lastname = $_POST['lastname'];
     $age = $_POST['age'];
     $grade = $_POST['grade'];
+    $section = $_POST['section'];
     $dob = $_POST['dob'];
     $contact = $_POST['contact'];
-    $restrictions = $_POST['restrictions'];
+    $description = $_POST['description'];
     $gender = $_POST['gender'];
     $nationality = $_POST['nationality'];
     $address = $_POST['address'];
@@ -29,10 +30,11 @@ if(isset($_POST['submit'])) {
             firstname='$firstname', 
             lastname='$lastname', 
             age='$age', 
-            grade='$grade', 
+            grade='$grade',
+            section='$section', 
             dob='$dob',
             contact='$contact', 
-            restrictions='$restrictions', 
+            description='$description', 
             gender='$gender', 
             nationality='$nationality', 
             address='$address', 
@@ -41,6 +43,8 @@ if(isset($_POST['submit'])) {
     
     if ($conn->query($sql) === TRUE) {
         echo "Record updated successfully";
+        $class_id= isset($_GET['class_id']) ? $_GET['class_id'] : null;
+        header("Location: userinfo.php?user_id=" . $userid . "&section_id=" .  $section . "&grade_id=" . $grade . "&class_id=" .$class_id);
     } else {
         echo "Error updating record: " . $conn->error;
     }
@@ -136,7 +140,12 @@ if ($result->num_rows > 0) {
 </head>
 <body bgcolor="#111">
     <h1>Edit Student Database Of Class X</h1>
-    <a href="userinfo.php?user_id=<?php echo $row['userid']; ?>"><button class="button"><b>Back</b></button></a>
+    <?php
+    $grade_id= isset($_GET['grade_id']) ? $_GET['grade_id'] : null;
+    $class_id= isset($_GET['class_id']) ? $_GET['class_id'] : null;
+    $section_id = isset($_GET['section_id']) ? $_GET['section_id'] : null;
+    ?>
+    <a href="userinfo.php?user_id=<?php echo $row['userid']; ?>&section_id=<?php echo $section_id?>&grade_id=<?php echo $grade_id;?>&class_id=<?php echo $class_id;?>"><button class="button"><b>Back</b></button></a>
     <hr>
     <div class="center-box">
         <form method="post" action="">
@@ -153,14 +162,23 @@ if ($result->num_rows > 0) {
             <label for="Grade">Grade:</label><br>
             <input type="text" id="Grade" name="grade" value="<?php echo $row['grade']; ?>" required><br><br>
 
-            <label for="Grade">Restrictions:</label><br>
-            <input type="text" id="restrictions" name="restrictions" value="<?php echo $row['restrictions']; ?>" required><br><br>
+            <label for="Grade">Description:</label><br>
+            <textarea id="description" name="description"><?php echo $row['description']; ?></textarea><br><br>
+
+            <label for="section">Section:</label><br>
+            <select id="section" name="section" required>
+            <option value="A" <?php if($row['section'] == 'A') echo 'selected'; ?>>A</option>
+            <option value="B" <?php if($row['section'] == 'B') echo 'selected'; ?>>B</option>
+            <option value="C" <?php if($row['section'] == 'C') echo 'selected'; ?>>C</option>
+            <option value="D" <?php if($row['section'] == 'D') echo 'selected'; ?>>D</option>
+            </select><br><br>
 
             <label for="Date Of Birth">Date Of Birth:</label><br>
-            <input type="date" id="dob" name="dob" value="<?php echo $row['dob']; ?>" required><br><br>
+            <input type="date" id="dob" name="dob" placeholder="dd-mm-yyyy" value="<?php echo $row['dob']; ?>" required><br><br>
 
             <label for="Emergency Contact 1">Emergency Contact 1 (Required):</label><br>
             <input type="text" id="Emergency Contact 1" name="contact" value="<?php echo $row['contact']; ?>" required><br><br>
+            
             <label for="address">Address:</label><br>
             <textarea id="address" name="address" required><?php echo $row['address']; ?></textarea><br><br>
 
